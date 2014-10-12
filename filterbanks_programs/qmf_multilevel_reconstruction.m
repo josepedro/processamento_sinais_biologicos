@@ -26,4 +26,8 @@ for(k = 2 : number_levels + 1)
 	xr = xr + x_struct{k};
 end
 
-xr_no_delay = xr(abs(relative_delay + delay) + 1 : end);
+%xr_no_delay = xr(abs(relative_delay + delay) + 1 : end);
+% The total delay of the QMF filterbank is (2^number_of_levels - 1)*(filtord(h1)/2 + filtord(h2)/2).
+% Used the approx. filtord(h1) = filtord(h2)
+% Tested for 'bior3.5', 'haar', 'db45', 'sym5', 'coif1' and 'rbio3.5'.
+xr_no_delay = xr((2^number_levels-1)*(length(g1)-1) + 1 : end);
