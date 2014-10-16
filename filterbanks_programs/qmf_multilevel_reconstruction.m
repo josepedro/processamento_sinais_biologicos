@@ -22,8 +22,7 @@ for(k = 2 : number_levels + 1)
 	x_struct{k} = (x_struct{k}(:)).';
 	upsample_factor = upsample_factor / 2;
 	L = max([length(xr) length(x_struct{k})]);
-	xr = [xr zeros(1, L - length(xr))] +...
-	     [x_struct{k} zeros(1, L - length(x_struct{k}))];
+	xr = [xr zeros(1, L - length(xr))] + [x_struct{k} zeros(1, L - length(x_struct{k}))];
 end
 
 delay = additional_delay + length(g1) - 1;
@@ -31,7 +30,9 @@ delay = additional_delay + length(g1) - 1;
 
 xr_no_delay = xr(1 + delay : end);
 if(nargin >= 5)
-	disp(length(xr_no_delay))
-	disp(N)
+	%disp(length(xr_no_delay))
+	%disp(N)
 	xr_no_delay = xr_no_delay(1 : N);
 end
+
+%figure; plot(xr_no_delay, 'r');

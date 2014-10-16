@@ -29,14 +29,3 @@ if(complete_zeros_to_the_left)
 	end
 	additional_delay = L - length(h1);
 end
-
-
-
-
-
-
-
-
-
-
-
