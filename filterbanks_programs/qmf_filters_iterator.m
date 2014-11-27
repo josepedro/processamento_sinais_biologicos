@@ -2,6 +2,8 @@ function [h, additional_delay] = qmf_filters_iterator...
              (h0, h1, number_levels,...
               complete_zeros_to_the_left);
 
+% 
+
 if nargin < 4
 	complete_zeros_to_the_left = 0;
 end
